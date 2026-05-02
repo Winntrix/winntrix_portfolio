@@ -237,7 +237,7 @@ const Process = () => {
             </p>
 
             {/* TECH */}
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {[
                 "react",
                 "nextjs",
@@ -254,7 +254,7 @@ const Process = () => {
                 >
                   <img
                     src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`}
-                    className="w-10 h-10"
+                    className="w-12 h-12 md:w-10 md:h-10"
                     alt=""
                   />
                 </div>

@@ -27,7 +27,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-20 px-12">
         <div className="animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full  py-8 mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full pt-16 pb-8 md:pt-8 mb-8">
             Build With Us. Grow Without Limits.
           </div>
 
@@ -47,7 +47,7 @@ const Hero = () => {
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="https://wa.me/918989944488?text=Hello%20Ashish,%20I'd%20like%20to%20get%20a%20free%20consultation"
+              href="https://wa.me/917007458210?text=Hello%20Pravesh,%20I'd%20like%20to%20get%20a%20free%20consultation"
               target="_blank"
               rel="noreferrer"
               className="btn-accent"

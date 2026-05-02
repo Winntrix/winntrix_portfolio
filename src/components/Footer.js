@@ -99,7 +99,7 @@ const Footer = () => {
                   <p className="text-gray-400 text-[10px]">Email</p>
                   <a
                     href="mailto:info@winntrix.com"
-                    className="text-white text-base hover:text-[#25ccad] transition text-[12px]"
+                    className="text-white text-[12px] hover:text-[#25ccad] transition "
                   >
                     info@winntrix.com
                   </a>

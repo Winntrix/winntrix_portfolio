@@ -170,20 +170,29 @@ const WebDevelopment = () => {
           </p>
 
           {/* TABS */}
-          <div className="flex justify-center gap-4 mb-10">
-            {["mern", "frontend", "backend"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 rounded-full border ${
-                  activeTab === tab
-                    ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white"
-                    : "border-gray-300 text-gray-600"
-                }`}
-              >
-                {tab.toUpperCase()}
-              </button>
-            ))}
+          <div className="grid grid-cols-2 md:flex justify-center gap-4 mb-10 place-items-center">
+            {["mern", "frontend", "backend"].map((tab, i, arr) => (
+  <button
+    key={tab}
+    onClick={() => setActiveTab(tab)}
+    className={`
+      px-6 py-2 rounded-full border transition-all duration-300
+      ${
+        activeTab === tab
+          ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white shadow-md"
+          : "border-gray-300 text-gray-600 hover:border-[#25ccad] hover:text-[#25ccad]"
+      }
+
+      ${
+        arr.length % 2 === 1 && i === arr.length - 1
+          ? "col-span-2 justify-self-center"
+          : ""
+      }
+    `}
+  >
+    {tab.toUpperCase()}
+  </button>
+))}
           </div>
 
           {/* TECH GRID */}

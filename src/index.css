@@ -183,4 +183,19 @@
   animation: fadeIn 0.25s ease;
 }
 
+/* add in global css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* smoother iOS feel */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
 }
