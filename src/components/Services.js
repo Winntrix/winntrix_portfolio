@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Globe, Code, Smartphone, Shield, BarChart, Cloud } from "lucide-react";
 
 const servicesList = [
