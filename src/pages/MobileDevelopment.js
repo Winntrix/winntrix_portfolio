@@ -1,10 +1,9 @@
 import {
-  ArrowBigLeft,
+  
   ArrowRight,
-  Code,
+  
   Code2,
   Rocket,
-  Sparkles,
   Stars,
   User,
 } from "lucide-react";

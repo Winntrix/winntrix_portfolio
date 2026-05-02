@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, Calendar, Zap, Users, Globe, DotIcon } from "lucide-react";
+import {  Calendar, Zap, Users, Globe, DotIcon } from "lucide-react";
 
 const News = () => {
   const updates = [

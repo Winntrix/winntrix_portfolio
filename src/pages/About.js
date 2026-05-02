@@ -8,8 +8,6 @@ import {
   Brain,
   Layers,
   Users,
-  MapPinCheck,
-  Contact,
   PhoneCall,
 } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";

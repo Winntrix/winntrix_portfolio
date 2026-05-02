@@ -12,16 +12,11 @@ import {
   Brain,
 } from "lucide-react";
 import { GrSecure } from "react-icons/gr";
-import { SlSupport } from "react-icons/sl";
-import { BiMobile } from "react-icons/bi";
-import { CiMobile1 } from "react-icons/ci";
-import { TbGrowth } from "react-icons/tb";
 import { GiProgression } from "react-icons/gi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {

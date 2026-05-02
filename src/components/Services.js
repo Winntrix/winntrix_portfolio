@@ -35,7 +35,6 @@ const servicesList = [
 ];
 
 const Services = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section id="services" className="section bg-[rgb(233,250,246)]">

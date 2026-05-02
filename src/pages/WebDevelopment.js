@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { Database, Server, Globe, Code, Layers, Cpu } from "lucide-react";
 
 const WebDevelopment = () => {
   const [activeTab, setActiveTab] = useState("mern");
