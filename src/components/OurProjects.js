@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 const OurProjects = () => {
   const scrollRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -75,14 +73,7 @@ const OurProjects = () => {
       link: "https://healthcareportal.com",
     },
   ];
-  const handleScroll = () => {
-    const container = scrollRef.current;
-    const scrollLeft = container.scrollLeft;
-    const cardWidth = 320; // approx width (300 + gap)
-
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(index);
-  };
+  
 
   return (
     <section className="relative py-20 bg-white overflow-hidden">
