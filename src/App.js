@@ -67,6 +67,7 @@ const App = () => {
         <ScrollTop />
       </div>
     </Router>
+    
   );
 };
 
