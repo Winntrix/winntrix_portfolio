@@ -49,6 +49,7 @@ const Hero = () => {
             <a
               href="https://wa.me/918989944488?text=Hello%20Ashish,%20I'd%20like%20to%20get%20a%20free%20consultation"
               target="_blank"
+              rel="noreferrer"
               className="btn-accent"
             >
               Get Free Consultation →

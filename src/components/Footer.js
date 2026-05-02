@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
@@ -32,25 +32,25 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 mt-5 gap-4 border-t border-border pt-4">
               <a
-                href="#"
+                href="https://www.instagram.com/winntrix/"
                 className="text-gray-400 hover:text-[#25ccad] hover:scale-110 transition text-lg"
               >
                 <FaInstagram />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/winntrix/"
                 className="text-gray-400 hover:text-[#25ccad] hover:scale-110 transition text-lg"
               >
                 <FaLinkedin />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/winntrix/"
                 className="text-gray-400 hover:text-[#25ccad] hover:scale-110 transition text-lg"
               >
                 <FaFacebook />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@winntrix"
                 className="text-gray-400 hover:text-[#25ccad] hover:scale-110 transition text-lg"
               >
                 <FaYoutube />
@@ -64,20 +64,20 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {[
-                "Web Development",
-                "Mobile Development",
-                "CMS Solutions",
-                "UI/UX Design",
-                "Digital Marketing",
-                "AI Integration",
+                { name: "Web Development", path: "/services/web-development" },
+                { name: "Mobile Development", path: "/services/mobile-development" },
+                { name: "CMS Solutions", path: "/services/cms-solutions" },
+                { name: "UI/UX Design", path: "/services/ui-ux-design" },
+                { name: "Digital Marketing", path: "/services/digital-marketing" },
+                { name: "AI Integration", path: "/services/ai-integration" },
               ].map((item, idx) => (
                 <li key={idx}>
-                  <a
-                    href="#"
-                    className="text-white text-sm hover:text-[#25ccad] hover:scale-110  transition"
+                  <Link
+                    to={item.path}
+                    className="text-white text-sm hover:text-[#25ccad] hover:scale-110 transition"
                   >
-                    {item}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -133,30 +133,30 @@ const Footer = () => {
           </div>
 
           <div>
-  <h4 className="font-display font-bold mb-4 text-[#25ccad] text-lg">
-    Quick Links
-  </h4>
+            <h4 className="font-display font-bold mb-4 text-[#25ccad] text-lg">
+              Quick Links
+            </h4>
 
-  <ul className="space-y-2">
-    {[
-      { name: "News", path: "/news" },
-      { name: "Contact Us", path: "/contact" },
-      { name: "About", path: "/about" },
-      { name: "Privacy Policy", path: "/privacy-policy" },
-      { name: "Terms & Conditions", path: "/terms" },
-      { name: "Cookie Policy", path: "/cookies" },
-    ].map((item, idx) => (
-      <li key={idx}>
-        <Link
-          to={item.path}
-          className="text-white text-sm hover:text-[#25ccad] transition transform hover:scale-105 inline-block"
-        >
-          {item.name}
-        </Link>
-      </li>
-    ))}
-  </ul>
-</div>
+            <ul className="space-y-2">
+              {[
+                { name: "News", path: "/news" },
+                { name: "Contact Us", path: "/contact" },
+                { name: "About", path: "/about" },
+                { name: "Privacy Policy", path: "/privacy-policy" },
+                { name: "Terms & Conditions", path: "/terms" },
+                { name: "Cookie Policy", path: "/cookies" },
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    className="text-white text-sm hover:text-[#25ccad] transition transform hover:scale-105 inline-block"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-border pt-6  pr-10 flex flex-col md:flex-row justify-between gap-4 text-sm">

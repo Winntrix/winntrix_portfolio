@@ -273,6 +273,7 @@ const WhyUs = () => {
             <a
               href="https://wa.me/918989944488?text=Hello%20Ashish,%20I'd%20like%20to%20get%20a%20free%20consultation"
               target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 bg-white text-black px-8 py-5 rounded-full font-bold transition-all duration-300 hover:bg-[#24ccad] hover:scale-110"
             >
               Get Free Consultation →
