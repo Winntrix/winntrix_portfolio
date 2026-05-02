@@ -1,13 +1,186 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-body bg-bg-dark text-text-primary;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #111;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #24ccad;
+    border-radius: 2px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center gap-2 bg-[#24ccad] text-black px-6 py-3 rounded-lg font-bold transition-all duration-300 hover:bg-[#24ccad] hover:scale-110;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center gap-2 bg-transparent text-[#24ccad] px-6 py-3 rounded-full font-bold border border-[#24ccad] transition-all duration-300 hover:bg-[#24ccad] hover:text-black;
+  }
+  
+  .section {
+    @apply py-24 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .label {
+    @apply text-[0.7rem] font-bold tracking-[3px] text-[#24ccad] font-display block mb-4;
+  }
+  
+  .h2 {
+    @apply font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-black mb-4 leading-tight;
+  }
+  
+  .card {
+    @apply bg-bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:border-[#24ccad] hover:bg-[#161616] hover:-translate-y-1;
+  }
+  .particle {
+  position: absolute;
+  background: #25ccad;
+  border-radius: 9999px;
+  opacity: 0.3;
+  animation: floatParticle linear infinite;
+  box-shadow: 0 0 10px #25ccad;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+/* particles */
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(37, 204, 173, 0.7);
+  box-shadow: 0 0 10px rgba(37, 204, 173, 0.6);
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0 }
+  100% { background-position: 200% 0 }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(12deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-floatSlow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+.input-premium {
+  @apply w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 
+  text-white placeholder:text-gray-500 font-medium 
+  focus:outline-none focus:border-[#25ccad] focus:bg-white/10 transition-all;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease;
+}
+
 }
