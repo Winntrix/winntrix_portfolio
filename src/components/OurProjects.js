@@ -169,7 +169,7 @@ className={`
   ${
     type === "app"
       ? "h-[380px] lg:h-[500px] object-contain bg-black" // 👈 portrait
-      : "h-[300px] md:h-[320px] lg:h-[420px] object-cover" // 👈 landscape
+      : "h-[300px] md:h-[320px] lg:h-[360px] object-cover" // 👈 landscape
   }
   transition duration-700 group-hover:scale-110
 `}            />
