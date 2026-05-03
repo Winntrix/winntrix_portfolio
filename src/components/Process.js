@@ -7,6 +7,7 @@ import {
   PenTool,
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const steps = [
   {
@@ -59,27 +60,91 @@ const Process = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -60 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 60 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const staggerFast = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const scalePop = {
+    scale: [1, 1.2, 1],
+    transition: { duration: 0.5 }
+  };
+
   return (
-    <section className="relative py-20 bg-[rgb(233,250,246)] overflow-hidden">
+    <motion.section 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="relative py-20 bg-[rgb(233,250,246)] overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-6">
-            <div className="w-2 h-2 bg-[#25ccad] rounded-full animate-pulse"></div>
+        <motion.div 
+          variants={staggerContainer}
+          className="text-center mb-16"
+        >
+          <motion.div 
+            variants={fadeInUp}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-6"
+          >
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="w-2 h-2 bg-[#25ccad] rounded-full"
+            ></motion.div>
             <span className="text-[#25ccad] text-xs tracking-widest font-bold">
               HOW WE WORK
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-black">
+          <motion.h2 
+            variants={fadeInUp}
+            className="text-3xl md:text-5xl font-extrabold text-black"
+          >
             Our Development <span className="text-[#25ccad]">Process</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-gray-600 mt-4 max-w-xl mx-auto">
+          <motion.p 
+            variants={fadeInUp}
+            className="text-gray-600 mt-4 max-w-xl mx-auto"
+          >
             A systematic approach ensuring quality, efficiency, and results.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* MAIN GRID */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -87,13 +152,14 @@ const Process = () => {
           {/* ========================= */}
           {/* DESKTOP CIRCLE */}
           {/* ========================= */}
-          <div className="hidden lg:block relative w-full max-w-[500px] aspect-square mx-auto">
+          <motion.div 
+            variants={fadeInLeft}
+            className="hidden lg:block relative w-full max-w-[500px] aspect-square mx-auto"
+          >
 
             <svg className="absolute inset-0 w-full h-full rotate-[-90deg]">
-              
-
               {/* progress */}
-              <circle
+              <motion.circle
                 cx="250"
                 cy="250"
                 r="200"
@@ -105,7 +171,11 @@ const Process = () => {
                 strokeDashoffset={
                   1256 - (1256 / steps.length) * (activeStep + 1)
                 }
-                className="transition-all duration-700"
+                initial={{ strokeDashoffset: 1256 }}
+                animate={{ 
+                  strokeDashoffset: 1256 - (1256 / steps.length) * (activeStep + 1)
+                }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
               />
             </svg>
 
@@ -127,13 +197,16 @@ const Process = () => {
                   }}
                 >
                   {/* STEP */}
-                  <div
-                    className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 border-4
+                  <motion.div
+                    whileHover={{ scale: 1.3 }}
+                    animate={activeStep === i ? scalePop : {}}
+                    className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 border-4 cursor-pointer
                     ${
                       activeStep === i
                         ? "bg-[#25ccad] text-white scale-125 shadow-[0_0_40px_#25ccad] border-white"
-                        : "bg-white text-gray-500 border-gray-200"
+                        : "bg-white text-gray-500 border-gray-200 hover:border-[#25ccad]"
                     }`}
+                    onClick={() => setActiveStep(i)}
                   >
                     <div className="flex flex-col items-center">
                       <span className="text-lg">{step.icon}</span>
@@ -141,54 +214,73 @@ const Process = () => {
                         {step.num}
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
 
                   {/* FLOAT CARD */}
-                  {activeStep === i && (
-                    <div
-                      className="absolute w-72"
-                      style={{
-                        left: i < 3 ? "120%" : "-120%",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                      }}
-                    >
-                      <div className="bg-white rounded-2xl shadow-xl p-5 border">
-                        <p className="text-xs text-gray-400 mb-1 font-bold">
-                          STEP {step.num}
-                        </p>
-                        <p className="font-bold text-black">
-                          {step.title}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {step.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {activeStep === i && (
+                      <motion.div
+                        initial={{ opacity: 0, x: i < 3 ? 50 : -50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: i < 3 ? 50 : -50, scale: 0.8 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute w-72"
+                        style={{
+                          left: i < 3 ? "120%" : "-120%",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                        }}
+                      >
+                        <div className="bg-white rounded-2xl shadow-xl p-5 border">
+                          <p className="text-xs text-gray-400 mb-1 font-bold">
+                            STEP {step.num}
+                          </p>
+                          <p className="font-bold text-black">
+                            {step.title}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {step.subtitle}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
 
             {/* CENTER */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-40 h-40 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center">
+            <div 
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <motion.div 
+                whileHover={{ scale: 1.1 }}
+                className="w-40 h-40 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center"
+              >
                 <p className="font-bold text-lg text-black">WinNtrix</p>
                 <p className="text-xs text-[#25ccad] tracking-widest">
                   METHODOLOGY
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* ========================= */}
           {/* MOBILE STEPS */}
           {/* ========================= */}
-          <div className="lg:hidden space-y-5">
+          <motion.div 
+            variants={staggerContainer}
+            className="lg:hidden space-y-5"
+          >
             {steps.map((step, i) => (
-              <div
+              <motion.div
                 key={i}
-                className={`flex items-center gap-4 p-5 rounded-[20px] border transition-all duration-300 shadow-md
+                variants={fadeInRight}
+                whileHover={{ scale: 1.02 }}
+                onClick={() => setActiveStep(i)}
+                className={`flex items-center gap-4 p-5 rounded-[20px] border transition-all duration-300 shadow-md cursor-pointer
                 ${
                   activeStep === i
                     ? "border-[#25ccad] bg-white shadow-[0_0_25px_rgba(37,204,173,0.3)]"
@@ -196,7 +288,8 @@ const Process = () => {
                 }`}
               >
                 {/* ICON */}
-                <div
+                <motion.div
+                  animate={activeStep === i ? scalePop : {}}
                   className={`w-14 h-14 rounded-xl flex items-center justify-center text-xl
                   ${
                     activeStep === i
@@ -205,7 +298,7 @@ const Process = () => {
                   }`}
                 >
                   {step.icon}
-                </div>
+                </motion.div>
 
                 {/* TEXT */}
                 <div>
@@ -219,25 +312,36 @@ const Process = () => {
                     {step.subtitle}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* ========================= */}
           {/* RIGHT CONTENT */}
           {/* ========================= */}
-          <div>
-            <h3 className="text-4xl font-extrabold mb-4 text-black">
+          <motion.div 
+            variants={staggerContainer}
+          >
+            <motion.h3 
+              variants={fadeInUp}
+              className="text-4xl font-extrabold mb-4 text-black"
+            >
               Powered by Modern <br />
               Technology
-            </h3>
+            </motion.h3>
 
-            <p className="text-gray-600 mb-8">
+            <motion.p 
+              variants={fadeInUp}
+              className="text-gray-600 mb-8"
+            >
               We build high-performance systems using modern tech.
-            </p>
+            </motion.p>
 
             {/* TECH */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <motion.div 
+              variants={staggerFast}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+            >
               {[
                 "react",
                 "nextjs",
@@ -245,42 +349,59 @@ const Process = () => {
                 "nodejs",
                 "python",
                 "docker",
-                "amazonwebservices",
+                "flutter",
                 "postgresql",
               ].map((tech, i) => (
-                <div
+                <motion.div
                   key={i}
-                  className="bg-white rounded-xl p-6 flex items-center justify-center border"
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="bg-white rounded-xl p-6 flex items-center justify-center border cursor-pointer"
                 >
-                  <img
+                  <motion.img
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
                     src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`}
                     className="w-12 h-12 md:w-10 md:h-10"
                     alt=""
                   />
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* STATS */}
-            <div className="grid grid-cols-3 gap-6 mt-10 text-center">
-              <div>
-                <p className="text-4xl font-bold text-black">50+</p>
-                <p className="text-gray-500 text-sm">Projects Delivered</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-[#25ccad]">20+</p>
-                <p className="text-gray-500 text-sm">Happy Clients</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-black">10+</p>
-                <p className="text-gray-500 text-sm">Expert Talent</p>
-              </div>
-            </div>
-          </div>
+            <motion.div 
+              variants={staggerContainer}
+              className="grid grid-cols-3 gap-6 mt-10 text-center"
+            >
+              {[
+                { value: "50+", label: "Projects Delivered", color: "text-black" },
+                { value: "20+", label: "Happy Clients", color: "text-[#25ccad]" },
+                { value: "10+", label: "Expert Talent", color: "text-black" }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <motion.p 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.2, type: "spring", stiffness: 200 }}
+                    className={`text-4xl font-bold ${stat.color}`}
+                  >
+                    {stat.value}
+                  </motion.p>
+                  <p className="text-gray-500 text-sm">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

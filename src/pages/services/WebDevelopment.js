@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -33,8 +34,76 @@ const WebDevelopment = () => {
     ],
   };
 
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 0.8 },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const staggerFast = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const scaleOnHover = {
+    whileHover: { scale: 1.05, transition: { duration: 0.2 } },
+  };
+
+  const floatAnimation = {
+    animate: {
+      y: [0, -20, 0],
+      rotate: [0, 5, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const pulseGlow = {
+    animate: {
+      scale: [1, 1.1, 1],
+      opacity: [0.2, 0.3, 0.2],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <>
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={fadeIn}
+    >
       {/* HERO */}
       <section className="relative pt-44 pb-28 bg-gradient-to-br from-[#0f172a] via-[#0b1f2e] to-[#0f172a] text-white overflow-hidden">
         {/* GRID BACKGROUND */}
@@ -42,55 +111,92 @@ const WebDevelopment = () => {
 
         {/* GRADIENT OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] via-[#0e1a2b] to-[#12343a]" />
+        
         {/* LEFT GLOW */}
-        <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-[#25ccad]/20 blur-[140px] rounded-full animate-pulse" />
+        <motion.div 
+          variants={pulseGlow}
+          animate="animate"
+          className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-[#25ccad]/20 blur-[140px] rounded-full"
+        />
 
         {/* RIGHT GLOW */}
-        <div className="absolute bottom-1/3 -right-32 w-[500px] h-[500px] bg-[#25ccad]/10 blur-[140px] rounded-full animate-pulse" />
+        <motion.div 
+          variants={pulseGlow}
+          animate="animate"
+          className="absolute bottom-1/3 -right-32 w-[500px] h-[500px] bg-[#25ccad]/10 blur-[140px] rounded-full"
+        />
 
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           {/* BADGE */}
-          <div className="inline-block px-6 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 text-[#25ccad] text-md mb-6">
+          <motion.div 
+            variants={fadeUp}
+            className="inline-block px-6 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 text-[#25ccad] text-md mb-6"
+          >
             MERN STACK SPECIALISTS
-          </div>
+          </motion.div>
 
           {/* TITLE */}
-          <h1 className="text-4xl md:text-8xl font-black [word-spacing:2px] mb-6 mt-4">
+          <motion.h1 
+            variants={fadeUp}
+            className="text-4xl md:text-8xl font-black [word-spacing:2px] mb-6 mt-4"
+          >
             Engineering High-Performance,
             <br />
             <span className="text-[#25ccad]">Scalable Web Apps</span>
-          </h1>
+          </motion.h1>
 
           {/* DESC */}
-          <p className="text-white/60 max-w-2xl mx-auto mb-8 text-xl">
+          <motion.p 
+            variants={fadeUp}
+            className="text-white/60 max-w-2xl mx-auto mb-8 text-xl"
+          >
             Building powerful, modern web applications with React, Node.js, and
             cutting-edge technologies. From concept to deployment, we deliver
             enterprise-grade solutions.{" "}
-          </p>
+          </motion.p>
 
           {/* CTA */}
-          <button className="px-8 py-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+          <motion.button 
+            variants={fadeUp}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition"
+          >
             View Our Work
-          </button>
+          </motion.button>
 
           {/* TECH BADGES */}
-          <div className="flex flex-wrap justify-center gap-4 mt-20">
+          <motion.div 
+            variants={stagger}
+            initial="hidden"
+            animate="show"
+            className="flex flex-wrap justify-center gap-4 mt-20"
+          >
             {["⚛️ React", "🟢 Node.js", "🍃 MongoDB", "▲ Next.js"].map(
               (tech, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeUp}
+                  whileHover={{ scale: 1.05, y: -3 }}
                   className="px-8 py-4 bg-white/5 border border-white/10 rounded-full text-sm"
                 >
                   {tech}
-                </div>
+                </motion.div>
               ),
             )}
-          </div>
+          </motion.div>
         </div>
 
         <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 hidden lg:block">
-          <div className="animate-float-slow animate-tilt">
-            <div className="relative w-[360px] rounded-2xl border border-[#25ccad]/20 bg-[#071826]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(37,204,173,0.15)] overflow-hidden animate-float">
+          <motion.div 
+            variants={floatAnimation}
+            animate="animate"
+            className="animate-float-slow animate-tilt"
+          >
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="relative w-[360px] rounded-2xl border border-[#25ccad]/20 bg-[#071826]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(37,204,173,0.15)] overflow-hidden"
+            >
               {/* TOP BAR */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
                 <div className="w-3 h-3 bg-red-400 rounded-full"></div>
@@ -128,13 +234,19 @@ const WebDevelopment = () => {
 
                 <p>{"};"}</p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="bg-gray-100 py-20 text-center">
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={stagger}
+        className="bg-gray-100 py-20 text-center"
+      >
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
           {[
             ["50+", "Projects Delivered"],
@@ -142,93 +254,140 @@ const WebDevelopment = () => {
             ["98%", "Client Satisfaction"],
             ["24/7", "Support Available"],
           ].map(([num, label], i) => (
-            <div key={i}>
-              <h2 className="text-5xl font-bold text-[#1a9b8e]">{num}</h2>
+            <motion.div 
+              key={i}
+              variants={fadeUp}
+              whileHover={{ y: -5 }}
+            >
+              <motion.h2 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                className="text-5xl font-bold text-[#1a9b8e]"
+              >
+                {num}
+              </motion.h2>
               <p className="text-gray-500 mt-2">{label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* TECH SECTION */}
-      <section className="py-20 bg-white text-center">
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+        className="py-20 bg-white text-center"
+      >
         <div className="max-w-6xl mx-auto px-4 ">
-          <div className="bg-[#eaf5f3] py-2 px-6 rounded-full inline-block">
-            <p className="text-xs tracking-widest text-[#199b8e] font-bold">
-              OUR EXPERTISE
-            </p>
-          </div>
+          <motion.div variants={fadeUp}>
+            <div className="bg-[#eaf5f3] py-2 px-6 rounded-full inline-block">
+              <p className="text-xs tracking-widest text-[#199b8e] font-bold">
+                OUR EXPERTISE
+              </p>
+            </div>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-6xl font-bold mb-8 mt-6 text-black">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-6xl font-bold mb-8 mt-6 text-black">
             Technologies We <span className="text-[#1a9b8e]">Master</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-gray-500 mb-16 ">
+          <motion.p variants={fadeUp} className="text-gray-500 mb-16 ">
             Specialized in the MERN stack and modern web technologies for
             building <br />
             scalable, performant applications
-          </p>
+          </motion.p>
 
           {/* TABS */}
           <div className="grid grid-cols-2 md:flex justify-center gap-4 mb-10 place-items-center">
             {["mern", "frontend", "backend"].map((tab, i, arr) => (
-  <button
-    key={tab}
-    onClick={() => setActiveTab(tab)}
-    className={`
-      px-6 py-2 rounded-full border transition-all duration-300
-      ${
-        activeTab === tab
-          ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white shadow-md"
-          : "border-gray-300 text-gray-600 hover:border-[#25ccad] hover:text-[#25ccad]"
-      }
+              <motion.button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                variants={fadeUp}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  px-6 py-2 rounded-full border transition-all duration-300
+                  ${
+                    activeTab === tab
+                      ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white shadow-md"
+                      : "border-gray-300 text-gray-600 hover:border-[#25ccad] hover:text-[#25ccad]"
+                  }
 
-      ${
-        arr.length % 2 === 1 && i === arr.length - 1
-          ? "col-span-2 justify-self-center"
-          : ""
-      }
-    `}
-  >
-    {tab.toUpperCase()}
-  </button>
-))}
-          </div>
-
-          {/* TECH GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
-            {tabs[activeTab].map((tech, i) => (
-              <div
-                key={i}
-                className="group aspect-square bg-white rounded-2xl border border-gray-200 hover:border-[#25ccad] hover:shadow-xl transition flex flex-col items-center justify-center text-center"
+                  ${
+                    arr.length % 2 === 1 && i === arr.length - 1
+                      ? "col-span-2 justify-self-center"
+                      : ""
+                  }
+                `}
               >
-                {/* ICON CIRCLE */}
-                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
-                  {tech.icon}
-                </div>
-
-                {/* NAME */}
-                <p className="font-semibold text-gray-800 text-sm md:text-base">
-                  {tech.name}
-                </p>
-              </div>
+                {tab.toUpperCase()}
+              </motion.button>
             ))}
           </div>
+
+          {/* TECH GRID WITH ANIMATION ON TAB CHANGE */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-6 gap-6"
+            >
+              {tabs[activeTab].map((tech, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                  whileHover={{ y: -8, borderColor: "#25ccad" }}
+                  className="group aspect-square bg-white rounded-2xl border border-gray-200 hover:shadow-xl transition flex flex-col items-center justify-center text-center cursor-pointer"
+                >
+                  {/* ICON CIRCLE */}
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl mb-4 transition"
+                  >
+                    {tech.icon}
+                  </motion.div>
+
+                  {/* NAME */}
+                  <p className="font-semibold text-gray-800 text-sm md:text-base">
+                    {tech.name}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES */}
-      <section className="py-20 bg-gray-100 ">
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+        className="py-20 bg-gray-100"
+      >
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="bg-[#e5f0f1] py-2 px-6 rounded-full inline-block">
-            <p className="text-xs tracking-widest text-[#199b9e] font-bold">
-              WHAT WE DO
-            </p>
-          </div>
+          <motion.div variants={fadeUp}>
+            <div className="bg-[#e5f0f1] py-2 px-6 rounded-full inline-block">
+              <p className="text-xs tracking-widest text-[#199b9e] font-bold">
+                WHAT WE DO
+              </p>
+            </div>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-6xl font-bold mb-12 mt-8 text-black">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-6xl font-bold mb-12 mt-8 text-black">
             Our <span className="text-[#1a9b8e]">Services</span>
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -267,7 +426,7 @@ const WebDevelopment = () => {
               },
               {
                 icon: "🎨",
-                title: "UI/UX Imeplementation",
+                title: "UI/UX Implementation",
                 desc: "Pixel-perfect implementation of designs with smooth animations and interactions",
                 features: [
                   "Responsive Design",
@@ -277,14 +436,19 @@ const WebDevelopment = () => {
                 ],
               },
             ].map((service, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="group p-10 rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-[#25ccad] hover:shadow-xl hover:-translate-y-1 text-left"
+                variants={fadeUp}
+                whileHover={{ y: -8, borderColor: "#25ccad" }}
+                className="group p-10 rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-xl text-left cursor-pointer"
               >
                 {/* ICON */}
-                <div className="text-5xl mb-8 mt-2 transition-transform duration-300 group-hover:scale-105">
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="text-5xl mb-8 mt-2 transition-transform duration-300"
+                >
                   {service.icon}
-                </div>
+                </motion.div>
 
                 {/* TITLE */}
                 <h3 className="font-bold text-xl text-gray-900 mb-6">
@@ -299,59 +463,85 @@ const WebDevelopment = () => {
                 {/* FEATURES */}
                 <ul className="space-y-5">
                   {service.features.map((item, idx) => (
-                    <li
+                    <motion.li
                       key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.1 }}
                       className="flex items-center gap-2 text-gray-600 text-sm"
                     >
                       <span className="w-5 h-5 flex items-center justify-center rounded-full bg-[#1a9b8e] text-white text-xs">
                         ✓
                       </span>
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA */}
-      <section className="relative py-28 text-white text-center overflow-hidden">
-  {/* GRADIENT BACKGROUND */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5]" />
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeIn}
+        className="relative py-28 text-white text-center overflow-hidden"
+      >
+        {/* GRADIENT BACKGROUND */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5]" />
 
- {/* GRID OVERLAY */}
-  <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        {/* GRID OVERLAY */}
+        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-  {/* CONTENT */}
-  <div className="relative z-10 max-w-3xl mx-auto px-4">
-    
-    {/* TITLE */}
-    <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-      Ready to Build Something Amazing?
-    </h2>
+        {/* CONTENT */}
+        <div className="relative z-10 max-w-3xl mx-auto px-4">
+          
+          {/* TITLE */}
+          <motion.h2 
+            variants={fadeUp}
+            className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+          >
+            Ready to Build Something Amazing?
+          </motion.h2>
 
-    {/* TEXT */}
-    <p className="text-lg md:text-xl text-white/80 mb-10">
-      Let’s discuss your project and create a solution that exceeds <br />
-      expectations
-    </p>
+          {/* TEXT */}
+          <motion.p 
+            variants={fadeUp}
+            className="text-lg md:text-xl text-white/80 mb-10"
+          >
+            Let's discuss your project and create a solution that exceeds <br />
+            expectations
+          </motion.p>
 
-    {/* BUTTON */}
-    <Link
-      to="/contact"
-      className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl 
-      bg-white/10 backdrop-blur-md border border-white/20 
-      hover:bg-white/20 transition-all duration-300 
-      font-semibold text-lg shadow-lg hover:scale-105"
-    >
-      Get in Touch
-      <ArrowRight size={18} />
-    </Link>
-  </div>
-</section>
-    </>
+          {/* BUTTON */}
+          <motion.div
+            variants={fadeUp}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl 
+              bg-white/10 backdrop-blur-md border border-white/20 
+              hover:bg-white/20 transition-all duration-300 
+              font-semibold text-lg shadow-lg"
+            >
+              Get in Touch
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <ArrowRight size={18} />
+              </motion.div>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+    </motion.div>
   );
 };
 

@@ -9,6 +9,16 @@ import {
   Layers,
   Users,
   PhoneCall,
+  Award,
+  Clock,
+  Calendar,
+  Building2,
+  Headphones,
+  ChevronRight,
+  Sparkles,
+  Zap,
+  Shield,
+  TrendingUp,
 } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
 
@@ -91,243 +101,481 @@ const About = () => {
     },
   ];
 
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 0.8 },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const staggerFast = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const iconHover = {
+    whileHover: { rotate: 10, scale: 1.1, transition: { duration: 0.2 } },
+  };
+
   return (
-    <div className="bg-[#061413] text-white">
-      {/* 🔥 HERO */}
-      <section className="py-28 text-center bg-gradient-to-br from-[#0a2e2a] to-[#061413]">
-        <div className="container-custom">
-          <div className="inline-block px-6 py-4 rounded-xl bg-white border border-white/20 mb-6">
-            <h3 className="text-[#25ccad] font-bold text-2xl">Winntrix</h3>
-            <p className="text-xs tracking-widest text-[#25ccad]">
-              BUILD WITH US. GROW WITHOUT LIMITS.
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={fadeIn}
+      className="bg-gradient-to-br from-[#0a0f1c] via-[#0a1a1a] to-[#061413] text-white overflow-x-hidden"
+    >
+      {/* HERO SECTION - Modern Gradient */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 -left-40 w-96 h-96 bg-[#25ccad]/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 -right-40 w-96 h-96 bg-[#25ccad]/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#25ccad]/5 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 text-center z-10">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="show"
+            className="space-y-8"
+          >
+            <motion.div variants={fadeUp}>
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/30 backdrop-blur-sm">
+                <Sparkles className="w-4 h-4 text-[#25ccad]" />
+                <span className="text-[#25ccad] text-sm font-medium">Innovation Meets Excellence</span>
+              </div>
+            </motion.div>
+
+            <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+              Let's Build Something
+              <span className="block bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text text-transparent mt-4">
+                Amazing Together
+              </span>
+            </motion.h1>
+
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl mx-auto text-lg">
+              We transform your vision into reality with web, mobile, SaaS, and AI solutions. 
+              Your trusted partner for digital innovation.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-[#25ccad] to-emerald-500 text-black font-semibold rounded-xl shadow-lg shadow-[#25ccad]/30"
+              >
+                Start a Project
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-semibold hover:bg-white/20 transition"
+              >
+                Watch Demo
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-white/50 rounded-full mt-2" />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* CONTACT CARDS - Glassmorphism Style */}
+      <motion.section 
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-7xl mx-auto px-6 -mt-20 relative z-20"
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Card 1 */}
+          <motion.div 
+            variants={fadeUp}
+            whileHover={{ y: -10 }}
+            className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#25ccad]/50 transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <motion.div 
+              variants={iconHover}
+              whileHover="whileHover"
+              className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-6"
+            >
+              <MapPin className="w-6 h-6 text-black" />
+            </motion.div>
+            <h3 className="text-xl font-bold mb-2">Head Quarter</h3>
+            <p className="text-gray-400 text-sm">India</p>
+            <p className="text-gray-400 text-sm mt-4">
+              1050A/10, Govindpuri, <br />
+              Kalkaji. New Delhi, 11019
             </p>
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Build Something Amazing Together
-          </h1>
-
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            We transform your vision into reality with web, mobile, SaaS, and AI
-            solutions.
-          </p>
-        </div>
-      </section>
-
-      {/* 🔥 CONTACT CARDS */}
-      <section className="container-custom grid md:grid-cols-3 gap-6 -mt-16">
-        {/* CARD */}
-        <div className="bg-white text-black p-8 pb-12 pt-12 rounded-2xl shadow-xl">
-          <div className="bg-gradient-to-t from-[#25ccad] to-[#1aa38f] p-4 rounded-2xl inline-block">
-            <MapPin className="text-black " />
-          </div>
-          <h3 className="font-bold text-lg mt-4">Head Quarter</h3>
-          <p className="text-xs mt-4 text-gray-600 font-bold">
-            India <br />
-          </p>
-          <p className="text-xs mt-4 text-gray-600">
-            1050A/10, Govindpuri, <br />
-            Kalkaji. New Delhi, 11019
-          </p>
-        </div>
-
-        <div className="bg-white text-black p-8 pb-12 pt-12 rounded-2xl shadow-xl">
-          <div className="bg-gradient-to-t from-[#25ccad] to-[#1aa38f] p-4 rounded-2xl inline-block">
-            <Mail className="text-black " />
-          </div>
-          <h3 className="font-bold text-lg mt-4">Email Address</h3>
-          <p className="text-xs mt-4 text-gray-600 font-bold">
-            Sale Inquiries <br />
-          </p>
-          <p className="text-[12px] mt-2 text-[#25ccad]">info@winntrix.com</p>
-          <p className="text-xs mt-4 text-gray-600 font-bold">
-            Support & Chat <br />
-          </p>
-          <div className="flex flex-col gap-3 mt-2">
-            <div className="flex items-center gap-3">
-              <PhoneCall className="w-4 h-4 text-[#25ccad] hover:scale-110 transition" />
-              <p className="text-[12px] text-[#25ccad]">+91 7007458210</p>
+          {/* Card 2 */}
+          <motion.div 
+            variants={fadeUp}
+            whileHover={{ y: -10 }}
+            className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#25ccad]/50 transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <motion.div 
+              variants={iconHover}
+              whileHover="whileHover"
+              className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-6"
+            >
+              <Mail className="w-6 h-6 text-black" />
+            </motion.div>
+            <h3 className="text-xl font-bold mb-2">Email Address</h3>
+            <p className="text-gray-400 text-sm">Sale Inquiries</p>
+            <motion.p whileHover={{ x: 5 }} className="text-[#25ccad] text-sm mt-2">
+              info@winntrix.com
+            </motion.p>
+            <p className="text-gray-400 text-sm mt-4">Support & Chat</p>
+            <div className="flex flex-col gap-2 mt-2">
+              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
+                <PhoneCall className="w-4 h-4 text-[#25ccad]" />
+                <p className="text-sm text-[#25ccad]">+91 7007458210</p>
+              </motion.div>
+              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
+                <BsWhatsapp className="w-4 h-4 text-[#25ccad]" />
+                <p className="text-sm text-[#25ccad]">+91 7007458210</p>
+              </motion.div>
             </div>
+          </motion.div>
 
-            <div className="flex items-center gap-3">
-              <BsWhatsapp className="w-4 h-4 text-[#25ccad] hover:scale-110 transition" />
-              <p className="text-[12px] text-[#25ccad]">+91 7007458210</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white text-black p-8 pb-12 pt-12 rounded-2xl shadow-xl">
-          <div className="bg-gradient-to-t from-[#25ccad] to-[#1aa38f] p-4 rounded-2xl inline-block">
-            <Phone className="text-black " />
-          </div>
-          <h3 className="font-bold text-lg mt-4">Business Talk</h3>
-          <p className="text-xs mt-4 text-gray-600 font-bold">
-            Direct Lines
-            <br />
-          </p>
-          <p className="text-[12px] text-[#25ccad] mt-4">+91 7007458210</p>
-          <p className="text-[12px] text-[#25ccad] mt-2">+91 9628963864</p>
-          <p className="text-xs mt-4 text-gray-600">
-            Available Mon-Fri, 9:00 AM - 5:00 PM IST <br />
-            (2nd & 4th Sat Off)
-          </p>
-        </div>
-      </section>
-
-      {/* 🔥 COMPANY INFO */}
-      <section className="container-custom mt-16">
-        <div className="bg-white border border-white/10 p-10 rounded-3xl backdrop-blur-lg">
-          <div className="bg-[#E8F3F1] p-4 rounded-3xl">
-            <p className="text-black mb-8">
-              <strong>About Winntrix Technologies:</strong> Your Trusted Partner
-              for Web, Mobile, SaaS, and AI/ML Solutions. We specialize in
-              crafting cutting-edge web and mobile applications, SaaS platforms,
-              and AI/ML solutions. Based in India, we deliver innovation-driven
-              services tailored to meet your business needs.
+          {/* Card 3 */}
+          <motion.div 
+            variants={fadeUp}
+            whileHover={{ y: -10 }}
+            className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#25ccad]/50 transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <motion.div 
+              variants={iconHover}
+              whileHover="whileHover"
+              className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-6"
+            >
+              <Phone className="w-6 h-6 text-black" />
+            </motion.div>
+            <h3 className="text-xl font-bold mb-2">Business Talk</h3>
+            <p className="text-gray-400 text-sm">Direct Lines</p>
+            <motion.p whileHover={{ scale: 1.05 }} className="text-[#25ccad] text-sm mt-4">
+              +91 7007458210
+            </motion.p>
+            <motion.p whileHover={{ scale: 1.05 }} className="text-[#25ccad] text-sm mt-1">
+              +91 9628963864
+            </motion.p>
+            <p className="text-gray-400 text-xs mt-4">
+              Available Mon-Fri, 9:00 AM - 5:00 PM IST <br />
+              (2nd & 4th Sat Off)
             </p>
-          </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
-          <div className="grid md:grid-cols-3 gap-8 text-sm mt-8">
-            <div>
-              <p className="text-[#25ccad] font-bold">Business Hours</p>
-              <p className="text-black">Mon–Fri | 9 AM - 5 PM</p>
-            </div>
+      {/* COMPANY INFO - Modern Timeline Style */}
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+        className="max-w-7xl mx-auto px-6 mt-24"
+      >
+        <div className="relative">
+          {/* Background Decor */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#25ccad]/5 to-transparent rounded-3xl" />
+          
+          <div className="relative backdrop-blur-sm bg-white/5 border border-white/10 rounded-3xl p-10">
+            <div className="grid lg:grid-cols-2 gap-12">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-6">
+                  <Award className="w-4 h-4 text-[#25ccad]" />
+                  <span className="text-[#25ccad] text-xs font-semibold">ABOUT WINNTRIX</span>
+                </div>
+                <h2 className="text-3xl font-bold mb-6">Your Trusted Partner for Digital Excellence</h2>
+                <p className="text-gray-300 leading-relaxed">
+                  We specialize in crafting cutting-edge web and mobile applications, SaaS platforms,
+                  and AI/ML solutions. Based in India, we deliver innovation-driven services tailored
+                  to meet your business needs.
+                </p>
+              </div>
 
-            <div>
-              <p className="text-[#25ccad] font-bold">Founded</p>
-              <p className="text-black">August 2025</p>
-            </div>
-
-            <div>
-              <p className="text-[#25ccad] font-bold">Team Size</p>
-              <p className="text-black">10–50 Professionals</p>
-            </div>
-
-            <div>
-              <p className="text-[#25ccad] font-bold">Legal Name</p>
-              <p className="text-black">Winntrix Technologies Pvt. Ltd.</p>
-            </div>
-
-            <div className="bg-">
-              <p className="text-[#25ccad] font-bold">Customer Service</p>
-              <p className="text-black">+91 7007458210</p>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { icon: <Clock />, label: "Business Hours", value: "Mon–Fri | 9 AM - 5 PM" },
+                  { icon: <Calendar />, label: "Founded", value: "August 2025" },
+                  { icon: <Users />, label: "Team Size", value: "10–50 Professionals" },
+                  { icon: <Building2 />, label: "Legal Name", value: "Winntrix Technologies Pvt. Ltd." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    whileHover={{ x: 5 }}
+                    className="flex gap-3"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[#25ccad]/10 flex items-center justify-center text-[#25ccad]">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-400">{item.label}</p>
+                      <p className="text-white text-sm font-medium">{item.value}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/*  ENGINEERING SECTION */}
-      <section className="container-custom mt-24">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-8 font-bold">
-            <span className="text-[#25ccad] text-xs tracking-[0.2em] uppercase">
-              Deep Technical Expertise
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Engineering the <span className="text-[#25ccad]">Future</span>
-          </h2>
-        </div>
+      {/* ENGINEERING SECTION - Minimalist Modern */}
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-7xl mx-auto px-6 mt-28 mb-28"
+      >
+        <motion.div variants={stagger} className="text-center mb-16">
+          <motion.div variants={fadeUp}>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-6">
+              <Zap className="w-4 h-4 text-[#25ccad]" />
+              <span className="text-[#25ccad] text-xs tracking-[0.2em] uppercase font-semibold">
+                Deep Technical Expertise
+              </span>
+            </div>
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold">
+            Engineering the <span className="text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">Future</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            We build scalable, future-ready solutions that drive business growth
+          </motion.p>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="grid lg:grid-cols-12 gap-8">
           {/* LEFT MENU */}
-          <div className="lg:col-span-4 space-y-4">
+          <motion.div 
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="lg:col-span-5 space-y-3"
+          >
             {tabs.map((tab, i) => (
-              <button
+              <motion.button
                 key={i}
+                variants={fadeUp}
                 onClick={() => setActive(i)}
-                className={`w-full p-5 rounded-2xl text-left transition ${
+                whileHover={{ x: 8 }}
+                whileTap={{ scale: 0.98 }}
+                className={`w-full p-5 rounded-xl text-left transition-all duration-300 group ${
                   active === i
-                    ? "bg-white text-black border border-[#25ccad]"
-                    : "bg-white/5 border border-white/10 hover:border-[#25ccad]"
+                    ? "bg-gradient-to-r from-[#25ccad]/20 to-transparent border-l-4 border-[#25ccad]"
+                    : "hover:bg-white/5 border-l-4 border-transparent"
                 }`}
               >
-                <div className="flex gap-3 items-center">
-                  <div className="p-3 rounded-xl bg-[#25ccad] text-white shadow-lg transition-all duration-500 shadow-[#25ccad]/50">
-                    <div className="text-white">{tab.icon}</div>
+                <div className="flex gap-4 items-center">
+                  <div className={`p-3 rounded-xl transition-all duration-300 ${
+                    active === i 
+                      ? "bg-gradient-to-r from-[#25ccad] to-emerald-500 text-black shadow-lg shadow-[#25ccad]/30" 
+                      : "bg-white/10 text-gray-400 group-hover:text-[#25ccad]"
+                  }`}>
+                    {tab.icon}
                   </div>
-                  <div>
-                    <h3 className="font-bold">{tab.title}</h3>
+                  <div className="flex-1">
+                    <h3 className={`font-bold ${active === i ? "text-white" : "text-gray-300"}`}>
+                      {tab.title}
+                    </h3>
                     <p className="text-xs text-[#25ccad]">{tab.subtitle}</p>
                   </div>
+                  <ChevronRight className={`w-5 h-5 transition-all ${
+                    active === i ? "text-[#25ccad] opacity-100" : "opacity-0 group-hover:opacity-50"
+                  }`} />
                 </div>
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
 
           {/* RIGHT CONTENT */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4 }}
-                className="bg-white text-black p-10 rounded-3xl shadow-xl"
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 p-8"
               >
-                {/* TOP BADGE */}
-                <div className="flex items-center gap-2 text-[#25ccad] text-xs font-semibold tracking-widest mb-4">
-                  <span>⬡</span>
-                  EXPERTISE DEEP-DIVE
-                </div>
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#25ccad]/10 rounded-full blur-2xl" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
 
-                {/* TITLE */}
-                <h3 className="text-3xl md:text-4xl font-extrabold mb-4">
-                  {tabs[active].title}
-                </h3>
+                <div className="relative z-10">
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="flex items-center gap-2 mb-6"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#25ccad]/20 flex items-center justify-center">
+                      <TrendingUp className="w-4 h-4 text-[#25ccad]" />
+                    </div>
+                    <span className="text-[#25ccad] text-xs font-semibold tracking-wider">
+                      EXPERTISE DEEP-DIVE
+                    </span>
+                  </motion.div>
 
-                {/* DESCRIPTION */}
-                <p className="text-gray-600 mb-8 max-w-2xl leading-relaxed">
-                  {tabs[active].content}
-                </p>
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-2xl md:text-3xl font-bold mb-4"
+                  >
+                    {tabs[active].title}
+                  </motion.h3>
 
-                {/* DIVIDER */}
-                <div className="border-t border-gray-200 mb-8"></div>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-gray-300 mb-8 leading-relaxed"
+                  >
+                    {tabs[active].content}
+                  </motion.p>
 
-                {/* GRID SECTION */}
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  {/* LEFT LIST */}
-                  <div>
-                    <p className="text-xs tracking-widest text-gray-400 mb-4">
-                      CORE DELIVERABLES
-                    </p>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <motion.p 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="text-xs tracking-wider text-gray-500 mb-4 font-semibold"
+                      >
+                        CORE DELIVERABLES
+                      </motion.p>
+                      <ul className="space-y-3">
+                        {tabs[active].points.map((point, i) => (
+                          <motion.li 
+                            key={i} 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.4 + i * 0.1 }}
+                            whileHover={{ x: 5 }}
+                            className="flex items-start gap-3 cursor-pointer group/item"
+                          >
+                            <motion.div 
+                              whileHover={{ scale: 1.2 }}
+                              className="w-5 h-5 rounded-full bg-[#25ccad]/20 flex items-center justify-center flex-shrink-0 mt-0.5"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#25ccad]" />
+                            </motion.div>
+                            <span className="text-gray-300 text-sm group-hover/item:text-white transition">
+                              {point}
+                            </span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <ul className="space-y-3 text-gray-700 text-sm">
-                      {tabs[active].points.map((point, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-[#25ccad] rounded-full mt-2"></span>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* RIGHT HIGHLIGHT BOX */}
-                  <div className="bg-gray-100 rounded-3xl p-8">
-                    <p className="text-xs tracking-widest text-gray-400">
-                      {tabs[active].highlightTitle}
-                    </p>
-
-                    <h4 className="text-4xl font-extrabold text-[#25ccad] mt-2">
-                      {tabs[active].highlight}
-                    </h4>
-
-                    <p className="text-xs tracking-widest text-gray-400 mt-6">
-                      {tabs[active].subTitle}
-                    </p>
-
-                    <h4 className="text-3xl font-extrabold text-[#25ccad] mt-2">
-                      {tabs[active].subHighlight}
-                    </h4>
+                    <div>
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5 }}
+                        whileHover={{ scale: 1.02 }}
+                        className="bg-gradient-to-br from-[#25ccad]/10 to-emerald-500/10 rounded-xl p-6 border border-[#25ccad]/20"
+                      >
+                        <p className="text-xs tracking-wider text-gray-500 mb-2">
+                          {tabs[active].highlightTitle}
+                        </p>
+                        <p className="text-3xl font-bold text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">
+                          {tabs[active].highlight}
+                        </p>
+                        <div className="h-px bg-gradient-to-r from-[#25ccad]/50 to-transparent my-4" />
+                        <p className="text-xs tracking-wider text-gray-500 mb-2">
+                          {tabs[active].subTitle}
+                        </p>
+                        <p className="text-2xl font-bold text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">
+                          {tabs[active].subHighlight}
+                        </p>
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+
+      {/* STATS SECTION - New Addition */}
+      <motion.section 
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={stagger}
+        className="max-w-7xl mx-auto px-6 mb-28"
+      >
+        <div className="grid md:grid-cols-4 gap-6">
+          {[
+            { value: "50+", label: "Projects Delivered", icon: <Award /> },
+            { value: "4+", label: "Years Experience", icon: <Calendar /> },
+            { value: "98%", label: "Client Satisfaction", icon: <Users /> },
+            { value: "24/7", label: "Support Available", icon: <Headphones /> },
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileHover={{ y: -5 }}
+              className="text-center p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#25ccad]/10 flex items-center justify-center mx-auto mb-4 text-[#25ccad]">
+                {stat.icon}
+              </div>
+              <div className="text-3xl font-bold text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">
+                {stat.value}
+              </div>
+              <p className="text-gray-400 text-sm mt-2">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+    </motion.div>
   );
 };
 
