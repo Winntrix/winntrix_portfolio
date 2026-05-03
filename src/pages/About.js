@@ -17,7 +17,6 @@ import {
   ChevronRight,
   Sparkles,
   Zap,
-  Shield,
   TrendingUp,
 } from "lucide-react";
 import { BsWhatsapp } from "react-icons/bs";
@@ -128,14 +127,6 @@ const About = () => {
     },
   };
 
-  const staggerFast = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
 
   const iconHover = {
     whileHover: { rotate: 10, scale: 1.1, transition: { duration: 0.2 } },

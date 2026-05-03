@@ -31,9 +31,6 @@ const SaaSsolution = () => {
     }
   };
 
-  const scaleOnHover = {
-    whileHover: { scale: 1.05, transition: { duration: 0.3 } }
-  };
 
   return (
     <div className="bg-gradient-to-br from-[#020617] via-[#031933] to-[#020617] text-white">

@@ -42,17 +42,7 @@ const UIUXDesign = () => {
     },
   };
 
-  const scaleOnHover = {
-    whileHover: { scale: 1.05, transition: { duration: 0.2 } },
-  };
 
-  const cardHover = {
-    whileHover: {
-      y: -8,
-      borderColor: "#25ccad",
-      transition: { duration: 0.2 },
-    },
-  };
 
   return (
     <motion.div

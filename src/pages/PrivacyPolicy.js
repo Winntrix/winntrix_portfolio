@@ -39,14 +39,7 @@ const PrivacyPolicy = () => {
     },
   };
 
-  const staggerFast = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+
 
   const cardHover = {
     whileHover: { 
@@ -60,16 +53,7 @@ const PrivacyPolicy = () => {
     whileHover: { rotate: 10, scale: 1.1, transition: { duration: 0.2 } },
   };
 
-  const pulseAnimation = {
-    animate: {
-      scale: [1, 1.05, 1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
+
 
   return (
     <motion.div

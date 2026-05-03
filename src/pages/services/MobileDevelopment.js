@@ -9,7 +9,7 @@ import React from "react";
 import { BiMobile } from "react-icons/bi";
 import { BsLightning } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const MobileDevelopment = () => {
   // Animation variants
@@ -48,20 +48,8 @@ const MobileDevelopment = () => {
     },
   };
 
-  const scaleOnHover = {
-    whileHover: { scale: 1.05, transition: { duration: 0.2 } },
-  };
+ 
 
-  const floatAnimation = {
-    animate: {
-      y: [0, -15, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
 
   const pulseGlow = {
     animate: {

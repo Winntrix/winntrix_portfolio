@@ -60,9 +60,6 @@ const News = () => {
     }
   };
 
-  const scaleOnHover = {
-    whileHover: { scale: 1.05, transition: { duration: 0.3 } }
-  };
 
   return (
     <section className="relative bg-black text-white overflow-hidden">

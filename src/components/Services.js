@@ -1,5 +1,5 @@
 import React from "react";
-import { Globe, Code, Smartphone, Shield, BarChart, Cloud, Sparkles, Rocket, Zap } from "lucide-react";
+import { Globe, Code, Smartphone, Shield, BarChart, Cloud} from "lucide-react";
 import { motion } from "framer-motion";
 
 const servicesList = [

@@ -7,9 +7,6 @@ import {
   Smartphone, 
   Cpu, 
   Palette,
-  TrendingUp,
-  Sparkles,
-  Rocket
 } from "lucide-react";
 
 const focuses = [

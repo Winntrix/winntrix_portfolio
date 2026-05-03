@@ -61,19 +61,6 @@ const WebDevelopment = () => {
     },
   };
 
-  const staggerFast = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const scaleOnHover = {
-    whileHover: { scale: 1.05, transition: { duration: 0.2 } },
-  };
-
   const floatAnimation = {
     animate: {
       y: [0, -20, 0],

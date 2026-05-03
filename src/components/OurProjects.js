@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Globe, Smartphone, ExternalLink } from "lucide-react";
 
 const OurProjects = () => {

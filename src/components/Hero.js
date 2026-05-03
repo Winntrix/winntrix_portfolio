@@ -15,7 +15,7 @@ const Hero = () => {
       {/* Background Video with Parallax Effect */}
       <div className="absolute inset-0 w-full h-full">
         <video
-          className="absolute inset-0 w-full h-full object-cover transform scale-105 transition-transform duration-[10s] hover:scale-110"
+          className="absolute inset-0 w-full h-full opacity-70 object-cover transform scale-105 transition-transform duration-[10s] hover:scale-110"
           autoPlay
           muted
           loop
@@ -102,7 +102,7 @@ const Hero = () => {
               rel="noreferrer"
               className="group relative px-8 py-4 bg-gradient-to-r from-[#24ccad] to-[#1a9980] rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#24ccad]/20 hover:scale-105"
             >
-              <span className="relative z-10 text-white font-semibold flex items-center gap-2">
+              <span className="relative z-10 text-black font-semibold flex items-center gap-2">
                 Get Free Consultation
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
