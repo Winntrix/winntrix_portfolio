@@ -10,8 +10,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import News from './pages/News';
 import Contact from './pages/Contact';
-import WebDevelopment from './pages/WebDevelopment';
-import MobileDevelopment from './pages/MobileDevelopment';
+import WebDevelopment from './pages/services/WebDevelopment';
+import MobileDevelopment from './pages/services/MobileDevelopment';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import Services from './components/Services';
@@ -28,6 +28,10 @@ import MLModelEngineering from './pages/ai_integration/MLmodelEngerring';
 import MLDevelopment from './pages/ai_integration/MLdevelopment';
 import DataScientistConsulting from './pages/ai_integration/DataScientistConsulting';
 import AIconsulting from './pages/ai_integration/AIconsultiong';
+import NotFound from './pages/NotFound';
+import SaaSsolution from './pages/services/SaaSsolution';
+import UIUXDesign from './pages/services/UIUXDesign';
+import DigitalMarketing from './pages/services/DigitalMarketing';
 
 const App = () => {
   return (
@@ -43,6 +47,9 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/mobile-development" element={<MobileDevelopment />} />
+            <Route path="/services/saas-solutions" element={<SaaSsolution />} />
+            <Route path="/services/ui-ux-design" element={<UIUXDesign />} />
+            {/* <Route path="/services/digital-marketing" element={<DigitalMarketing />} /> */}
             <Route path="/ai-integration/generative-ai-development" element={<GenerativeAi />} />
             <Route path="/ai-integration/LLMdevelopment" element={<LLMDevelopment />} />
             <Route path="/ai-integration/generative-ai-integration" element={<GenerativeAiIntegration />} />
@@ -60,6 +67,8 @@ const App = () => {
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/cookies" element={<PrivacyPolicy />} />
             <Route path="/sitemap" element={<Home />} />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

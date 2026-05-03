@@ -261,9 +261,9 @@ const MobileDevelopment = () => {
           ].map((tech, i) => (
             <div
               key={i}
-              className="px-6 py-3 rounded-xl border border-slate-700 
+              className="px-6 py-3 rounded-xl border border-slate-700 bg-gradient-to-br from-slate-900 to-slate-800
           text-slate-300 hover:text-[#27ccae] 
-          hover:border-[#27ccae] transition duration-300"
+          hover:border-[#27ccae] transition duration-300 hover:scale-105"
             >
               {tech}
             </div>
@@ -272,7 +272,7 @@ const MobileDevelopment = () => {
       </section>
 
       {/* Our process */}
-      <section className="py-28 bg-[#020617] text-center">
+      <section className="py-24 bg-[#020617] text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
           Our <span className="text-[#27ccae]">Process</span>
         </h2>
@@ -280,7 +280,7 @@ const MobileDevelopment = () => {
           A proven methodology that delivers exceptional results
         </p>
 
-        <div className="grid md:grid-cols-4 gap-10 relative">
+        <div className="grid md:grid-cols-4 mx-20 gap-10 relative">
           {[
             {
               step: "01",
@@ -303,10 +303,10 @@ const MobileDevelopment = () => {
               desc: "Launch and scale with confidence",
             },
           ].map((item, i) => (
-            <div key={i} className="relative text-center">
+            <div key={i} className="relative text-center hover:scale-105 transition duration-300 ">
               {/* STEP BOX */}
               <div
-                className="w-20 h-20 mx-auto flex items-center justify-center 
+                className="w-24 h-24 mx-auto flex items-center justify-center 
           rounded-2xl text-white font-bold text-xl
           bg-gradient-to-br from-[#27ccae] to-[#1a9b8e]
           shadow-[0_0_25px_rgba(39,204,174,0.5)]"
@@ -316,7 +316,7 @@ const MobileDevelopment = () => {
 
               {/* LINE (except last) */}
               {i !== 3 && (
-                <div className="hidden md:block absolute top-10 left-full w-full h-[2px] bg-gradient-to-r from-[#27ccae] to-transparent"></div>
+                <div className="hidden md:block absolute top-10 left-3/4 w-full h-[2px] bg-gradient-to-r from-[#27ccae] to-transparent"></div>
               )}
 
               <h3 className="mt-6 text-white font-semibold">{item.title}</h3>
@@ -327,53 +327,80 @@ const MobileDevelopment = () => {
       </section>
 
       {/* Client Success */}
-      <section className="py-28 bg-[#020617] text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-          Client <span className="text-[#27ccae]">Success Stories</span>
-        </h2>
-        <p className="text-slate-400 mb-16">Don’t just take our word for it</p>
+<section className="py-20 md:py-28 bg-[#020617] text-center px-4 md:px-10 lg:px-20">
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              name: "Sarah Chen",
-              role: "CEO, TechStart",
-              text: "They transformed our vision into a stunning app that our users absolutely love. The attention to detail is remarkable.",
-            },
-            {
-              name: "Michael Roberts",
-              role: "CTO, FinanceFlow",
-              text: "Best mobile development team we’ve worked with. Professional, responsive, and delivered ahead of schedule.",
-            },
-            {
-              name: "Emily Davis",
-              role: "Product Lead, HealthSync",
-              text: "The Flutter app they built performs flawlessly across all devices. Couldn’t be happier with the results.",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-8 rounded-2xl border border-slate-800 
-        bg-gradient-to-br from-slate-900 to-slate-800
-        hover:border-[#27ccae] hover:shadow-[0_0_40px_rgba(39,204,174,0.15)]
-        transition duration-300 text-left"
-            >
-              {/* STARS */}
-              <div className="text-[#27ccae] mb-4 text-lg">★★★★★</div>
+  {/* HEADER */}
+  <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+    Client <span className="text-[#27ccae]">Success Stories</span>
+  </h2>
 
-              {/* TEXT */}
-              <p className="text-slate-400 text-sm leading-[1.8] mb-6">
-                "{item.text}"
-              </p>
+  <p className="text-slate-400 text-base md:text-lg mb-12 md:mb-16">
+    Don’t just take our word for it
+  </p>
 
-              <div className="border-t border-slate-700 pt-4">
-                <p className="text-white font-semibold">{item.name}</p>
-                <p className="text-slate-500 text-sm">{item.role}</p>
-              </div>
-            </div>
-          ))}
+  {/* GRID */}
+  <div className="
+    grid 
+    grid-cols-1 
+    sm:grid-cols-2 
+    lg:grid-cols-3 
+    gap-6 md:gap-8
+    max-w-7xl mx-auto
+  ">
+    {[
+      {
+        name: "Harish Tiwari",
+        role: "CEO, Thaiseva",
+        text: "They transformed our vision into a stunning app that our users absolutely love. The attention to detail is remarkable.",
+      },
+      {
+        name: "Jitendra Kumar",
+        role: "CTO, DigiStall",
+        text: "Best mobile development team we’ve worked with. Professional, responsive, and delivered ahead of schedule.",
+      },
+      {
+        name: "Emily Davis",
+        role: "Product Lead, HealthSync",
+        text: "The Flutter app they built performs flawlessly across all devices. Couldn’t be happier with the results.",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="
+          group p-6 md:p-8 
+          rounded-2xl 
+          border border-slate-800 
+          bg-gradient-to-br from-slate-900 to-slate-800
+          hover:border-[#27ccae] 
+          hover:shadow-[0_0_40px_rgba(39,204,174,0.15)]
+          hover:scale-[1.03]
+          transition-all duration-300
+          text-left
+        "
+      >
+        {/* STARS */}
+        <div className="text-[#27ccae] mb-4 text-base md:text-lg">
+          ★★★★★
         </div>
-      </section>
+
+        {/* TEXT */}
+        <p className="text-slate-400 text-sm md:text-[15px] leading-relaxed mb-6">
+          "{item.text}"
+        </p>
+
+        {/* FOOTER */}
+        <div className="border-t border-slate-700 pt-4">
+          <p className="text-white font-semibold text-sm md:text-base">
+            {item.name}
+          </p>
+          <p className="text-slate-500 text-xs md:text-sm">
+            {item.role}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Glow + Glass Card */}
       <section className="py-32 bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#0f172a] flex justify-center">

@@ -48,7 +48,7 @@ const Navbar = () => {
     {
       name: "SaaS Solutions",
       subtitle: "Scalable software as a service",
-      path: "/services/software-development",
+      path: "/services/saas-solutions",
       icon: <Database />,
     },
     {
@@ -57,24 +57,24 @@ const Navbar = () => {
       path: "/services/ui-ux-design",
       icon: <Speaker />,
     },
-    {
-      name: "Cyber Security",
-      subtitle: "Protect your digital assets",
-      path: "/services/cyber-security",
-      icon: <GrSecure className="w-6 h-6" />,
-    },
-    {
-      name: "Support & Maintenance",
-      subtitle: "Ongoing support and maintenance",
-      path: "/services/support-maintenance",
-      icon: <Settings />,
-    },
-    {
-      name: "Digital Marketiong",
-      subtitle: "Comprehensive digital marketing solutions",
-      path: "/services/ecommerce-development",
-      icon: <GiProgression />,
-    },
+    // {
+    //   name: "Cyber Security",
+    //   subtitle: "Protect your digital assets",
+    //   path: "/services/cyber-security",
+    //   icon: <GrSecure className="w-6 h-6" />,
+    // },
+    // {
+    //   name: "Support & Maintenance",
+    //   subtitle: "Ongoing support and maintenance",
+    //   path: "/services/support-maintenance",
+    //   icon: <Settings />,
+    // },
+    // {
+    //   name: "Digital Marketiong",
+    //   subtitle: "Comprehensive digital marketing solutions",
+    //   path: "/services/digital-marketing",
+    //   icon: <GiProgression />,
+    // },
   ];
 
   const aiMenu = [

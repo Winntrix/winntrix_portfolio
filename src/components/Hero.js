@@ -25,9 +25,9 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] z-10"></div>
 
       {/* Content */}
-      <div className="relative z-20 px-12">
+      <div className="relative z-20 px-12 ">
         <div className="animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full pt-16 pb-8 md:pt-8 mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full pt-20 pb-8 md:pt-12 ">
             Build With Us. Grow Without Limits.
           </div>
 
