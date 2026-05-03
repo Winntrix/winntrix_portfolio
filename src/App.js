@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import CookieBanner from './components/CookieBanner';
 import ScrollTop from './components/ScrollTop';
 
 // Import all pages
@@ -66,12 +65,10 @@ const App = () => {
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/cookies" element={<PrivacyPolicy />} />
             <Route path="/sitemap" element={<Home />} />
-
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
-        <CookieBanner />
         <ScrollTop />
       </div>
     </Router>
