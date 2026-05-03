@@ -2,7 +2,6 @@ import React from "react";
 import {
   Palette,
   Eye,
-  Monitor,
   Smartphone,
   Layers,
   Balloon,

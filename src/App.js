@@ -31,7 +31,6 @@ import AIconsulting from './pages/ai_integration/AIconsultiong';
 import NotFound from './pages/NotFound';
 import SaaSsolution from './pages/services/SaaSsolution';
 import UIUXDesign from './pages/services/UIUXDesign';
-import DigitalMarketing from './pages/services/DigitalMarketing';
 
 const App = () => {
   return (

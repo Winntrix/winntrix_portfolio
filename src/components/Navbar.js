@@ -11,7 +11,6 @@ import {
   Smartphone,
   Brain,
 } from "lucide-react";
-import { GrSecure } from "react-icons/gr";
 import { GiProgression } from "react-icons/gi";
 
 const Navbar = () => {
