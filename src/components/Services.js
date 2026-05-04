@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Globe, Code, Smartphone, Shield, BarChart, Cloud, X, CheckCircle, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -390,7 +390,7 @@ const Services = () => {
         </div>
       </motion.section>
 
-      {/* Modal with Blur Background */}
+      {/* Modal with Blur Background - FIXED CLOSE BUTTON */}
       <AnimatePresence>
         {isModalOpen && selectedService && (
           <>
@@ -404,30 +404,35 @@ const Services = () => {
               className="fixed inset-0 bg-black/60 backdrop-blur-md z-50"
             />
             
-            {/* Modal */}
+            {/* Modal Container */}
             <motion.div
               variants={modalVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative max-w-4xl w-full bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl overflow-hidden">
-                {/* Close Button */}
-                <button
-                  onClick={closeModal}
-                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white shadow-lg transition-all duration-300 hover:scale-110"
-                >
-                  <X className="w-5 h-5 text-gray-600" />
-                </button>
+              {/* Modal Content */}
+              <div className="relative max-w-4xl w-full bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl overflow-hidden my-8">
+                
+                {/* Close Button - FIXED POSITION */}
+                <div className="sticky top-0 z-20 flex justify-end p-3 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+                  <button
+                    onClick={closeModal}
+                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 shadow-md transition-all duration-300 hover:scale-110 focus:outline-none"
+                    aria-label="Close modal"
+                  >
+                    <X className="w-5 h-5 text-gray-600" />
+                  </button>
+                </div>
 
-                {/* Modal Content */}
-                <div className="p-6 sm:p-8 md:p-10">
+                {/* Modal Content - Scrollable */}
+                <div className="p-6 sm:p-8 md:p-10 max-h-[calc(100vh-120px)] overflow-y-auto">
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <div 
-                      className="w-16 h-16 rounded-xl flex items-center justify-center shadow-lg"
+                      className="w-16 h-16 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0"
                       style={{
                         background: `linear-gradient(135deg, ${selectedService.color}20, ${selectedService.color}10)`
                       }}
@@ -438,7 +443,7 @@ const Services = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 pr-8">
                         {selectedService.title}
                       </h2>
                       <div className="w-20 h-1 bg-[#25ccad] rounded-full mt-2" />
@@ -487,11 +492,21 @@ const Services = () => {
                     <div className="grid sm:grid-cols-2 gap-3">
                       {selectedService.detailedInfo.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <div className="w-2 h-2 rounded-full bg-[#25ccad] mt-2" />
+                          <div className="w-2 h-2 rounded-full bg-[#25ccad] mt-2 flex-shrink-0" />
                           <span className="text-gray-700 text-sm">{benefit}</span>
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="flex justify-end pt-6 border-t border-gray-200">
+                    <button
+                      onClick={closeModal}
+                      className="px-6 py-2.5 bg-gradient-to-r from-[#25ccad] to-emerald-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    >
+                      Get Started
+                    </button>
                   </div>
                 </div>
               </div>

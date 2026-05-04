@@ -30,8 +30,8 @@ const About = () => {
       setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const tabs = [
@@ -75,7 +75,8 @@ const About = () => {
       title: "Full-Stack Product Engineering",
       subtitle: "MERN STACK & BEYOND",
       icon: <Layers />,
-      content: "We don't just write code; we engineer scalable products. From high-traffic SaaS platforms to mission-critical internal systems using the modern web stack.",
+      content:
+        "We don't just write code; we engineer scalable products. From high-traffic SaaS platforms to mission-critical internal systems using the modern web stack.",
       points: [
         "High-performance MERN stack",
         "Next.js SSR optimization",
@@ -92,7 +93,8 @@ const About = () => {
       title: "Dedicated Hiring Models",
       subtitle: "YOUR TEAM, EXTENDED",
       icon: <Users />,
-      content: "Scale your engineering capacity overnight with our hire-dedicated-developers model. Proven experts who integrate as an extension of your in-house team.",
+      content:
+        "Scale your engineering capacity overnight with our hire-dedicated-developers model. Proven experts who integrate as an extension of your in-house team.",
       points: [
         "Hire React & Next.js developers",
         "AI/ML engineers on demand",
@@ -163,23 +165,34 @@ const About = () => {
             <motion.div variants={fadeUp}>
               <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/30 backdrop-blur-sm">
                 <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-[#25ccad]" />
-                <span className="text-[#25ccad] text-xs md:text-sm font-medium">Innovation Meets Excellence</span>
+                <span className="text-[#25ccad] text-xs md:text-sm font-medium">
+                  Innovation Meets Excellence
+                </span>
               </div>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="text-4xl md:text-7xl lg:text-8xl font-bold leading-tight">
+            <motion.h1
+              variants={fadeUp}
+              className="text-4xl md:text-7xl lg:text-8xl font-bold leading-[1.2] md:leading-tight"
+            >
               Let's Build Something
-              <span className="block bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text text-transparent mt-3 md:mt-4">
+              <span className="block bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text text-transparent mt-2 md:mt-3 pb-2 md:pb-3">
                 Amazing Together
               </span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl mx-auto text-sm md:text-lg px-4">
-              We transform your vision into reality with web, mobile, SaaS, and AI solutions. 
-              Your trusted partner for digital innovation.
+            <motion.p
+              variants={fadeUp}
+              className="text-gray-400 max-w-3xl mx-auto text-sm md:text-lg px-4"
+            >
+              We transform your vision into reality with web, mobile, SaaS, and
+              AI solutions. Your trusted partner for digital innovation.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4"
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -211,7 +224,7 @@ const About = () => {
       </section>
 
       {/* CONTACT CARDS - Fixed mobile layout */}
-      <motion.section 
+      <motion.section
         variants={stagger}
         initial="hidden"
         whileInView="show"
@@ -220,13 +233,13 @@ const About = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {/* Card 1 */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             whileHover={{ y: -5 }}
             className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-[#25ccad]/50 transition-all duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            <motion.div 
+            <motion.div
               variants={iconHover}
               whileHover="whileHover"
               className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-4 md:mb-6"
@@ -242,13 +255,13 @@ const About = () => {
           </motion.div>
 
           {/* Card 2 */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             whileHover={{ y: -5 }}
             className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-[#25ccad]/50 transition-all duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            <motion.div 
+            <motion.div
               variants={iconHover}
               whileHover="whileHover"
               className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-4 md:mb-6"
@@ -257,30 +270,45 @@ const About = () => {
             </motion.div>
             <h3 className="text-lg md:text-xl font-bold mb-2">Email Address</h3>
             <p className="text-gray-400 text-xs md:text-sm">Sale Inquiries</p>
-            <motion.p whileHover={{ x: 5 }} className="text-[#25ccad] text-xs md:text-sm mt-2 break-all">
+            <motion.p
+              whileHover={{ x: 5 }}
+              className="text-[#25ccad] text-xs md:text-sm mt-2 break-all"
+            >
               info@winntrix.com
             </motion.p>
-            <p className="text-gray-400 text-xs md:text-sm mt-3 md:mt-4">Support & Chat</p>
+            <p className="text-gray-400 text-xs md:text-sm mt-3 md:mt-4">
+              Support & Chat
+            </p>
             <div className="flex flex-col gap-2 mt-2">
-              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-3"
+              >
                 <PhoneCall className="w-3 h-3 md:w-4 md:h-4 text-[#25ccad]" />
-                <p className="text-xs md:text-sm text-[#25ccad]">+91 7007458210</p>
+                <p className="text-xs md:text-sm text-[#25ccad]">
+                  +91 7007458210
+                </p>
               </motion.div>
-              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-3"
+              >
                 <BsWhatsapp className="w-3 h-3 md:w-4 md:h-4 text-[#25ccad]" />
-                <p className="text-xs md:text-sm text-[#25ccad]">+91 7007458210</p>
+                <p className="text-xs md:text-sm text-[#25ccad]">
+                  +91 7007458210
+                </p>
               </motion.div>
             </div>
           </motion.div>
 
           {/* Card 3 */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             whileHover={{ y: -5 }}
             className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:border-[#25ccad]/50 transition-all duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#25ccad]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-            <motion.div 
+            <motion.div
               variants={iconHover}
               whileHover="whileHover"
               className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#25ccad] to-emerald-500 flex items-center justify-center mb-4 md:mb-6"
@@ -289,10 +317,16 @@ const About = () => {
             </motion.div>
             <h3 className="text-lg md:text-xl font-bold mb-2">Business Talk</h3>
             <p className="text-gray-400 text-xs md:text-sm">Direct Lines</p>
-            <motion.p whileHover={{ scale: 1.05 }} className="text-[#25ccad] text-xs md:text-sm mt-3 md:mt-4">
+            <motion.p
+              whileHover={{ scale: 1.05 }}
+              className="text-[#25ccad] text-xs md:text-sm mt-3 md:mt-4"
+            >
               +91 7007458210
             </motion.p>
-            <motion.p whileHover={{ scale: 1.05 }} className="text-[#25ccad] text-xs md:text-sm mt-1">
+            <motion.p
+              whileHover={{ scale: 1.05 }}
+              className="text-[#25ccad] text-xs md:text-sm mt-1"
+            >
               +91 9628963864
             </motion.p>
             <p className="text-gray-400 text-[10px] md:text-xs mt-3 md:mt-4">
@@ -304,7 +338,7 @@ const About = () => {
       </motion.section>
 
       {/* COMPANY INFO - Fixed mobile layout */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -313,28 +347,49 @@ const About = () => {
       >
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-[#25ccad]/5 to-transparent rounded-3xl" />
-          
+
           <div className="relative backdrop-blur-sm bg-white/5 border border-white/10 rounded-3xl p-6 md:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-[#25ccad]/10 border border-[#25ccad]/20 mb-4 md:mb-6">
                   <Award className="w-3 h-3 md:w-4 md:h-4 text-[#25ccad]" />
-                  <span className="text-[#25ccad] text-[10px] md:text-xs font-semibold">ABOUT WINNTRIX</span>
+                  <span className="text-[#25ccad] text-[10px] md:text-xs font-semibold">
+                    ABOUT WINNTRIX
+                  </span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Your Trusted Partner for Digital Excellence</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                  Your Trusted Partner for Digital Excellence
+                </h2>
                 <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                  We specialize in crafting cutting-edge web and mobile applications, SaaS platforms,
-                  and AI/ML solutions. Based in India, we deliver innovation-driven services tailored
-                  to meet your business needs.
+                  We specialize in crafting cutting-edge web and mobile
+                  applications, SaaS platforms, and AI/ML solutions. Based in
+                  India, we deliver innovation-driven services tailored to meet
+                  your business needs.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
                 {[
-                  { icon: <Clock />, label: "Business Hours", value: "Mon–Fri | 9 AM - 5 PM" },
-                  { icon: <Calendar />, label: "Founded", value: "August 2025" },
-                  { icon: <Users />, label: "Team Size", value: "10–50 Professionals" },
-                  { icon: <Building2 />, label: "Legal Name", value: "Winntrix Technologies Pvt. Ltd." },
+                  {
+                    icon: <Clock />,
+                    label: "Business Hours",
+                    value: "Mon–Fri | 9 AM - 5 PM",
+                  },
+                  {
+                    icon: <Calendar />,
+                    label: "Founded",
+                    value: "August 2025",
+                  },
+                  {
+                    icon: <Users />,
+                    label: "Team Size",
+                    value: "10–50 Professionals",
+                  },
+                  {
+                    icon: <Building2 />,
+                    label: "Legal Name",
+                    value: "Winntrix Technologies Pvt. Ltd.",
+                  },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -346,8 +401,12 @@ const About = () => {
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-[10px] md:text-xs text-gray-400">{item.label}</p>
-                      <p className="text-white text-xs md:text-sm font-medium">{item.value}</p>
+                      <p className="text-[10px] md:text-xs text-gray-400">
+                        {item.label}
+                      </p>
+                      <p className="text-white text-xs md:text-sm font-medium">
+                        {item.value}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -358,7 +417,7 @@ const About = () => {
       </motion.section>
 
       {/* ENGINEERING SECTION - Fixed mobile layout */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
@@ -373,17 +432,26 @@ const About = () => {
               </span>
             </div>
           </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-bold">
-            Engineering the <span className="text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">Future</span>
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-5xl font-bold"
+          >
+            Engineering the{" "}
+            <span className="text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">
+              Future
+            </span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-400 mt-3 md:mt-4 max-w-2xl mx-auto text-sm md:text-base px-4">
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-400 mt-3 md:mt-4 max-w-2xl mx-auto text-sm md:text-base px-4"
+          >
             We build scalable, future-ready solutions that drive business growth
           </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-6 md:gap-8">
           {/* LEFT MENU */}
-          <motion.div 
+          <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
@@ -404,22 +472,32 @@ const About = () => {
                 }`}
               >
                 <div className="flex gap-3 md:gap-4 items-start">
-                  <div className={`p-2 md:p-3 rounded-xl transition-all duration-300 flex-shrink-0 ${
-                    active === i 
-                      ? "bg-gradient-to-r from-[#25ccad] to-emerald-500 text-black shadow-lg shadow-[#25ccad]/30" 
-                      : "bg-white/10 text-gray-400 group-hover:text-[#25ccad]"
-                  }`}>
+                  <div
+                    className={`p-2 md:p-3 rounded-xl transition-all duration-300 flex-shrink-0 ${
+                      active === i
+                        ? "bg-gradient-to-r from-[#25ccad] to-emerald-500 text-black shadow-lg shadow-[#25ccad]/30"
+                        : "bg-white/10 text-gray-400 group-hover:text-[#25ccad]"
+                    }`}
+                  >
                     {tab.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className={`font-bold text-sm md:text-base ${active === i ? "text-white" : "text-gray-300"}`}>
+                    <h3
+                      className={`font-bold text-sm md:text-base ${active === i ? "text-white" : "text-gray-300"}`}
+                    >
                       {tab.title}
                     </h3>
-                    <p className="text-[10px] md:text-xs text-[#25ccad]">{tab.subtitle}</p>
+                    <p className="text-[10px] md:text-xs text-[#25ccad]">
+                      {tab.subtitle}
+                    </p>
                   </div>
-                  <ChevronRight className={`w-4 h-4 md:w-5 md:h-5 transition-all flex-shrink-0 ${
-                    active === i ? "text-[#25ccad] opacity-100" : "opacity-0 group-hover:opacity-50"
-                  }`} />
+                  <ChevronRight
+                    className={`w-4 h-4 md:w-5 md:h-5 transition-all flex-shrink-0 ${
+                      active === i
+                        ? "text-[#25ccad] opacity-100"
+                        : "opacity-0 group-hover:opacity-50"
+                    }`}
+                  />
                 </div>
               </motion.button>
             ))}
@@ -440,7 +518,7 @@ const About = () => {
                 <div className="absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-emerald-500/10 rounded-full blur-2xl" />
 
                 <div className="relative z-10">
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
@@ -454,7 +532,7 @@ const About = () => {
                     </span>
                   </motion.div>
 
-                  <motion.h3 
+                  <motion.h3
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -463,7 +541,7 @@ const About = () => {
                     {tabs[active].title}
                   </motion.h3>
 
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -474,7 +552,7 @@ const About = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div>
-                      <motion.p 
+                      <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
@@ -484,15 +562,15 @@ const About = () => {
                       </motion.p>
                       <ul className="space-y-2 md:space-y-3">
                         {tabs[active].points.map((point, i) => (
-                          <motion.li 
-                            key={i} 
+                          <motion.li
+                            key={i}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 + i * 0.1 }}
                             whileHover={{ x: 5 }}
                             className="flex items-start gap-2 md:gap-3 cursor-pointer group/item"
                           >
-                            <motion.div 
+                            <motion.div
                               whileHover={{ scale: 1.2 }}
                               className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#25ccad]/20 flex items-center justify-center flex-shrink-0 mt-0.5"
                             >
@@ -507,7 +585,7 @@ const About = () => {
                     </div>
 
                     <div>
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5 }}
@@ -538,7 +616,7 @@ const About = () => {
       </motion.section>
 
       {/* STATS SECTION - Fixed mobile grid */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
@@ -564,7 +642,9 @@ const About = () => {
               <div className="text-xl md:text-3xl font-bold text-transparent bg-gradient-to-r from-[#25ccad] to-emerald-400 bg-clip-text">
                 {stat.value}
               </div>
-              <p className="text-gray-400 text-[10px] md:text-sm mt-1 md:mt-2">{stat.label}</p>
+              <p className="text-gray-400 text-[10px] md:text-sm mt-1 md:mt-2">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </div>

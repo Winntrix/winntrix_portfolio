@@ -125,7 +125,7 @@ const WebDevelopment = () => {
           {/* TITLE */}
           <motion.h1 
             variants={fadeUp}
-            className="text-4xl md:text-8xl font-black [word-spacing:2px] mb-6 mt-4"
+            className="text-4xl md:text-7xl font-black [word-spacing:2px] mb-6 mt-4"
           >
             Engineering High-Performance,
             <br />
