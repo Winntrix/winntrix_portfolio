@@ -236,8 +236,8 @@ const WebDevelopment = () => {
       >
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
           {[
-            ["50+", "Projects Delivered"],
-            ["4+", "Years Experience"],
+            ["30+", "Projects Delivered"],
+            ["3+", "Years Experience"],
             ["98%", "Client Satisfaction"],
             ["24/7", "Support Available"],
           ].map(([num, label], i) => (

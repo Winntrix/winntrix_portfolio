@@ -21,6 +21,13 @@ const OurProjects = () => {
       link: "https://presentme.in/",
     },
     {
+      tag: "Ticket Booking Platform",
+      title: "Wooziee",
+      loc: "Navi Mumbai, India",
+      img: "/images/woozi.png",
+      link: "https://wooziee.com/",
+    },
+    {
       tag: "E-commerce Store",
       title: "DIGISTALL",
       loc: "Rajasthan, India",
@@ -41,6 +48,7 @@ const OurProjects = () => {
       img: "/images/thaisevaFood.png",
       link: "https://gothai-food.web.app/ejvimadrO3X7GZojLGz7UM3osTq1",
     },
+    
     {
       tag: "Internet Platform",
       title: "CODESYNC",

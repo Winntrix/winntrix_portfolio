@@ -144,7 +144,7 @@ const MobileDevelopment = () => {
                 {[
                   { Icon: Rocket, value: "30+", label: "Apps Delivered" },
                   { Icon: Stars, value: "98%", label: "Satisfaction" },
-                  { Icon: User, value: "10L+", label: "Users" },
+                  { Icon: User, value: "100K+", label: "Users" },
                 ].map((stat, i) => (
                   <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }}>
                     <stat.Icon />
