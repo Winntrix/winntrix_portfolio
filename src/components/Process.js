@@ -375,7 +375,7 @@ const Process = () => {
               className="grid grid-cols-3 gap-6 mt-10 text-center"
             >
               {[
-                { value: "50+", label: "Projects Delivered", color: "text-black" },
+                { value: "30+", label: "Projects Delivered", color: "text-black" },
                 { value: "20+", label: "Happy Clients", color: "text-[#25ccad]" },
                 { value: "10+", label: "Expert Talent", color: "text-black" }
               ].map((stat, i) => (

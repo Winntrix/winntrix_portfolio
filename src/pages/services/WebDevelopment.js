@@ -261,16 +261,16 @@ const WebDevelopment = () => {
         </div>
       </motion.section>
 
-      {/* TECH SECTION */}
+      {/* TECH SECTION - FIXED CENTERING */}
       <motion.section 
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={stagger}
-        className="py-20 bg-white text-center"
+        className="py-20 bg-white"
       >
-        <div className="max-w-6xl mx-auto px-4 ">
-          <motion.div variants={fadeUp}>
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div variants={fadeUp} className="text-center">
             <div className="bg-[#eaf5f3] py-2 px-6 rounded-full inline-block">
               <p className="text-xs tracking-widest text-[#199b8e] font-bold">
                 OUR EXPERTISE
@@ -278,19 +278,19 @@ const WebDevelopment = () => {
             </div>
           </motion.div>
 
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-6xl font-bold mb-8 mt-6 text-black">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-6xl font-bold mb-8 mt-6 text-black text-center">
             Technologies We <span className="text-[#1a9b8e]">Master</span>
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="text-gray-500 mb-16 ">
-            Specialized in the MERN stack and modern web technologies for
-            building <br />
+          <motion.p variants={fadeUp} className="text-gray-500 mb-16 text-center">
+            Specialized in the MERN stack and modern web technologies for building{" "}
+            <br className="hidden sm:block" />
             scalable, performant applications
           </motion.p>
 
-          {/* TABS */}
-          <div className="grid grid-cols-2 md:flex justify-center gap-4 mb-10 place-items-center">
-            {["mern", "frontend", "backend"].map((tab, i, arr) => (
+          {/* TABS - CENTERED */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {["mern", "frontend", "backend"].map((tab) => (
               <motion.button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -298,17 +298,11 @@ const WebDevelopment = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`
-                  px-6 py-2 rounded-full border transition-all duration-300
+                  px-6 py-2.5 rounded-full border transition-all duration-300
                   ${
                     activeTab === tab
-                      ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white shadow-md"
-                      : "border-gray-300 text-gray-600 hover:border-[#25ccad] hover:text-[#25ccad]"
-                  }
-
-                  ${
-                    arr.length % 2 === 1 && i === arr.length - 1
-                      ? "col-span-2 justify-self-center"
-                      : ""
+                      ? "bg-gradient-to-br from-[#1a9b8e] to-[#2bc4b5] text-white shadow-md border-transparent"
+                      : "border-gray-300 text-gray-600 hover:border-[#25ccad] hover:text-[#25ccad] bg-white"
                   }
                 `}
               >
@@ -317,7 +311,7 @@ const WebDevelopment = () => {
             ))}
           </div>
 
-          {/* TECH GRID WITH ANIMATION ON TAB CHANGE */}
+          {/* TECH GRID WITH CENTERED ALIGNMENT */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -325,31 +319,38 @@ const WebDevelopment = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-6 gap-6"
+              className="flex justify-center"
             >
-              {tabs[activeTab].map((tech, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -8, borderColor: "#25ccad" }}
-                  className="group aspect-square bg-white rounded-2xl border border-gray-200 hover:shadow-xl transition flex flex-col items-center justify-center text-center cursor-pointer"
-                >
-                  {/* ICON CIRCLE */}
-                  <motion.div 
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl mb-4 transition"
+              <div className={`
+                grid gap-6 place-items-center
+                ${activeTab === 'mern' && 'grid-cols-2 sm:grid-cols-4'}
+                ${activeTab === 'frontend' && 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4'}
+                ${activeTab === 'backend' && 'grid-cols-2 sm:grid-cols-3 md:grid-cols-3'}
+              `}>
+                {tabs[activeTab].map((tech, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.05 }}
+                    whileHover={{ y: -8, borderColor: "#25ccad" }}
+                    className="group w-32 sm:w-36 md:w-40 aspect-square bg-white rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer"
                   >
-                    {tech.icon}
-                  </motion.div>
+                    {/* ICON CIRCLE */}
+                    <motion.div 
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center text-2xl sm:text-3xl mb-3 sm:mb-4 transition"
+                    >
+                      {tech.icon}
+                    </motion.div>
 
-                  {/* NAME */}
-                  <p className="font-semibold text-gray-800 text-sm md:text-base">
-                    {tech.name}
-                  </p>
-                </motion.div>
-              ))}
+                    {/* NAME */}
+                    <p className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base px-2">
+                      {tech.name}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

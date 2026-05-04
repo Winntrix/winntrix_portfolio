@@ -18,6 +18,7 @@ const focuses = [
     size: "col-span-1 row-span-1",
     gradient: "from-blue-500 to-cyan-400",
     iconColor: "#24ccad",
+    sectionId: "web-development",
   },
   {
     num: "02",
@@ -27,6 +28,7 @@ const focuses = [
     size: "col-span-1 row-span-1",
     gradient: "from-purple-500 to-pink-400",
     iconColor: "#24ccad",
+    sectionId: "software-development",
   },
   {
     num: "03",
@@ -37,6 +39,7 @@ const focuses = [
     gradient: "from-indigo-500 to-purple-400",
     iconColor: "#24ccad",
     featured: true,
+    sectionId: "ai-development",
   },
   {
     num: "04",
@@ -46,6 +49,7 @@ const focuses = [
     size: "col-span-1 row-span-1",
     gradient: "from-green-500 to-emerald-400",
     iconColor: "#24ccad",
+    sectionId: "android-development",
   },
   {
     num: "05",
@@ -55,6 +59,7 @@ const focuses = [
     size: "col-span-1 row-span-1",
     gradient: "from-orange-500 to-red-400",
     iconColor: "#24ccad",
+    sectionId: "ai-integration",
   },
   {
     num: "06",
@@ -64,10 +69,39 @@ const focuses = [
     size: "md:col-span-2 row-span-1",
     gradient: "from-teal-500 to-green-400",
     iconColor: "#24ccad",
+    sectionId: "ui-ux-design",
   },
 ];
 
 const CoreFocus = () => {
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = 80; // Adjust based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    } else {
+      // If specific section doesn't exist, scroll to services section
+      const servicesSection = document.getElementById("services");
+      if (servicesSection) {
+        const navbarHeight = 80;
+        const elementPosition = servicesSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+  };
+
   // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -306,8 +340,9 @@ const CoreFocus = () => {
                     {focus.desc}
                   </p>
 
-                  {/* CTA Button */}
+                  {/* CTA Button - Now Working */}
                   <motion.button 
+                    onClick={() => scrollToSection(focus.sectionId)}
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-2 text-sm font-semibold transition-all duration-300 group/btn"
                     style={{ color: focus.iconColor }}
@@ -354,8 +389,6 @@ const CoreFocus = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        
       </div>
     </motion.section>
   );
