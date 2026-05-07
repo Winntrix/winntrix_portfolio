@@ -6,15 +6,39 @@
   </url>
 
   <url>
-    <loc>https://winntrix.com/services</loc>
+    <loc>https://winntrix.com/services/</loc>
   </url>
 
   <url>
-    <loc>https://winntrix.com/mobile-development</loc>
+    <loc>https://winntrix.com/services/mobile-development/</loc>
   </url>
 
   <url>
-    <loc>https://winntrix.com/contact</loc>
+    <loc>https://winntrix.com/services/web-development/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/services/saas-solutions/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/services/ui-ux-design/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/about/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/news/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/contact/</loc>
+  </url>
+
+  <url>
+    <loc>https://winntrix.com/privacy-policy/</loc>
   </url>
 
 </urlset>
