@@ -102,11 +102,11 @@ const OurProjects = () => {
       link: "https://play.google.com/store/apps/details?id=com.wooziee.androidapp",
     },
     {
-      tag: "Event Ticket Booking App",
-      title: "THAISEVA (coming soon)",
+      tag: "Tour & Travel App",
+      title: "THAISEVA",
       loc: "Thailand, Bangkok",
       img: "/images/thaisevaApp.png",
-      link: "https://play.google.com/store/apps/details?id=com.thaiseva.androidapp",
+      link: "https://play.google.com/store/search?q=thaiseva&c=apps",
     },
   ];
 

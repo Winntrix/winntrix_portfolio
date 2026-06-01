@@ -145,14 +145,14 @@ const News = () => {
                 variants={fadeInUp}
                 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3"
               >
-                Collab with <span className="text-[#25ccad]">Thaiseva</span>
+                Collab with <span className="text-[#25ccad]">Intela Solution</span>
               </motion.h2>
 
               <motion.p 
                 variants={fadeInUp}
                 className="text-gray-400 mb-5 md:mb-6 text-sm md:text-base leading-relaxed"
               >
-                Thaiseva is your all-in-one Thailand platform for curated travel, trusted local services, and real-time support from an on-ground team.
+                Intela Solution is your all-in-one Thailand platform for curated travel, trusted local services, and real-time support from an on-ground team.
               </motion.p>
 
               <motion.h6 
