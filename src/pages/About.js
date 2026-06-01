@@ -249,8 +249,8 @@ const About = () => {
             <h3 className="text-lg md:text-xl font-bold mb-2">Head Quarter</h3>
             <p className="text-gray-400 text-xs md:text-sm">India</p>
             <p className="text-gray-400 text-xs md:text-sm mt-3 md:mt-4">
-              1050A/10, Govindpuri, <br />
-              Kalkaji. New Delhi, 11019
+               Betiahata <br />
+               Gorakhpur, Uttar Pradesh - 273001
             </p>
           </motion.div>
 
@@ -388,7 +388,7 @@ const About = () => {
                   {
                     icon: <Building2 />,
                     label: "Legal Name",
-                    value: "Winntrix Technologies Pvt. Ltd.",
+                    value: "Winntrix Private Limited",
                   },
                 ].map((item, i) => (
                   <motion.div
