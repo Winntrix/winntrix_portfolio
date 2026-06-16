@@ -21,6 +21,13 @@ const OurProjects = () => {
       link: "https://presentme.in/",
     },
     {
+      tag: "Hotel Booking Platform",
+      title: "Jasaen Hotel",
+      loc: "Bangkok, Thailand",
+      img: "/images/jasaen.png",
+      link: "https://jasaen.com/",
+    },
+    {
       tag: "Ticket Booking Platform",
       title: "Wooziee",
       loc: "Navi Mumbai, India",
